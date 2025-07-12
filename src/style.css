@@ -1,0 +1,218 @@
+@font-face {
+  font-family: 'EmojiSubset';
+  src: url('./NotoSubset.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'GNUEmoji';
+  src: url('./unifont_upper-16.0.04.otf') format('opentype');
+  unicode-range: U+1F000-1FAFF, U+2600-26FF; /* Emojis and symbols */
+}
+
+body {
+  font-family: 'GNUEmoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'EmojiSubset', sans-serif;
+  background: #101820;
+  color: #fefefe;
+  padding: 20px;
+}
+.log {
+  white-space: pre-wrap;
+  background: #181f2a;
+  padding: 15px;
+  border-radius: 8px;
+  height: 400px;
+  overflow-y: auto;
+  margin-top: 15px;
+}
+.rarity-C { color: #8B4513; }
+.rarity-R { color: #C0C0C0; }
+.rarity-SR { color: #FFD700; }
+.rarity-SSR {
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  border: 2px solid;
+  border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
+  text-shadow: 0 0 4px black;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background: #ffc107;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.card-flip {
+  width: 300px;
+  height: 180px;
+  margin: 20px auto;
+  perspective: 1000px;
+}
+.card-grid .card-flip {
+  width: 200px;
+  height: 120px;
+  margin: 0 auto;
+}
+.card-grid .card-inner {
+  font-size: 0.9em;
+}
+.card-inner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.card-flip.flip .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+.card-front {
+  background: #444;
+  color: white;
+}
+.card-back {
+  background: #222;
+  color: white;
+  transform: rotateY(180deg);
+}
+#teamSelectBox {
+  margin-top: 10px;
+}
+
+.card-style {
+  width: 260px;
+  height: 160px;
+  padding: 15px;
+  border-radius: 12px;
+  font-family: monospace;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.rarity-C.card-style {
+  border: 2px solid saddlebrown;
+  background: linear-gradient(to bottom, #3a2e1e, #1e140a);
+}
+.rarity-R.card-style {
+  border: 2px solid silver;
+  background: linear-gradient(to bottom, #d1d1d1, #8a8a8a);
+  color: black;
+}
+.rarity-SR.card-style {
+  border: 2px solid gold;
+  background: linear-gradient(to bottom, #ffe700, #9e7f00);
+  color: black;
+}
+
+.rarity-SSR.card-style {
+  border: 2px solid white;
+  background: linear-gradient(135deg, red, orange, yellow, green, blue, indigo, violet);
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 3px black;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal-content {
+  background-color: #222;
+  margin: 5% auto;
+  padding: 20px;
+  border: 2px solid #444;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 50px;
+  margin-top: 20px;
+}
+
+.card-grid-item {
+  background: #181f2a;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.card-grid-item:hover {
+  transform: scale(1.03);
+}
+.card-flip {
+  cursor: pointer;
+}
+
+.card-back.rarity-C {
+  background: #4b2e17; /* brown tone */
+  padding: 5px;
+}
+
+.card-back.rarity-R {
+  background: #7c7c7c; /* silver tone */
+  padding: 5px;
+}
+
+.card-back.rarity-SR {
+  background: #d4af37; /* gold tone */
+  padding: 5px;
+
+}
+
+.card-back.rarity-SSR {
+  background: #958065d6;
+  color: white;
+  font-weight: normal;
+}
+
+.dup-count {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2px 5px;
+  border-radius: 6px;
+}
+

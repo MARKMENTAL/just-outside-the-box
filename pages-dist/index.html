@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just Outside the Box: Gacha Soccer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>⚽ Just Outside the Box: Gacha Soccer - Career Mode</h1>
+  <a href="https://github.com/MARKMENTAL/just-outside-the-box/releases/tag/nightly">
+    🪙 Download for Windows or Linux
+  </a>
+
+  <img src="logo.jpg" width="200px">
+  <p id="coinDisplay">🪙 Coins: 3</p>
+  <button id="viewCardsButton" onclick="viewPulledCards()">View Cards</button>
+  <button id="pullButton" onclick="pullFromPack()">Pull Team Pack</button>
+  <button id="startButton" onclick="startCareer()">Start Career</button>
+  <button id="resetButton" onclick="location.reload()">Restart</button>
+  <button id="deleteButton" onclick="clearProgress()">Clear Saved Data</button>
+  <select id="teamSelectBox" style="display:none"></select>
+
+  <div class="card-flip" id="gachaCard" style="display: none;">
+    <div class="card-inner" id="cardInner">
+      <div class="card-front">🎴 Drawing...</div>
+      <div class="card-back" id="cardBack">Team Info</div>
+    </div>
+  </div>
+
+  <div class="log" id="log"></div>
+
+  <script src="script.js"></script>
+  <div id="cardModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Your Pulled Teams</h2>
+      <div id="cardGrid" class="card-grid"></div>
+    </div>
+  </div>
+
+</body>
+</html>
+

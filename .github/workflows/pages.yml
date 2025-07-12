@@ -1,31 +1,32 @@
-name: 🌐 Deploy GitHub Pages Frontend
+name: 🌐 Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  
-  workflow_dispatch:
+    branches: ["main"]
 
 permissions:
   pages: write
   id-token: write
-  contents: read
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Pages
+      - name: 📁 Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: pages-dist/
+
+      - name: 🛠️ Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload static frontend (dist/)
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./dist  
-
-      - name: Deploy to GitHub Pages
+      - name: 🚀 Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
+        with:
+          artifact_name: github-pages
 

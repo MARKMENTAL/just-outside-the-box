@@ -2,11 +2,11 @@ name: 🛠️ Tauri Build & Release
 
 on:
   push:
-    branches: [ "main" ]  # or "release" if that's your default
-  workflow_dispatch:      # lets you manually trigger from the GitHub UI
+    branches: [ "main" ]
+  workflow_dispatch:
 
 permissions:
-  contents: write         # Needed to upload to GitHub Releases
+  contents: write
 
 jobs:
   build:
@@ -47,8 +47,6 @@ jobs:
       - name: Install frontend dependencies
         run: npm install
 
-      - name: Build and release with Tauri
+      - name: Build with Tauri
         uses: tauri-apps/tauri-action@v0
-        with:
-          args: --target ${{ matrix.platform == 'windows-latest' && 'x86_64-pc-windows-gnu' || '' }}
 

@@ -137,6 +137,7 @@ button {
   left: 0; top: 0;
   width: 100%; height: 100%;
   background-color: rgba(0, 0, 0, 0.75);
+  overflow-y: auto; /* enable scrolling if content overflows */
 }
 
 .modal-content {
@@ -144,12 +145,15 @@ button {
   margin: 5% auto;
   padding: 20px;
   border: 2px solid #444;
-  width: 80%;
+  width: 90%;
   max-width: 800px;
+  max-height: 90vh; /* restrict modal height */
+  overflow-y: auto;  /* allow inner scrolling */
   border-radius: 10px;
   color: white;
   text-align: center;
 }
+
 
 .close {
   color: #ccc;
